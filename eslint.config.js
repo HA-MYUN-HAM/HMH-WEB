@@ -1,3 +1,4 @@
+import stylistic from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -27,15 +28,9 @@ export default tseslint.config(
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       'import': importPlugin,
+      'stylistic': stylistic
     },
     rules: {
-      'semi': ['error', 'always'],
-      'quotes': ['off', 'single'],
-      'no-unused-vars': 'error',
-      'eol-last': ['error', 'always'],
-      'no-multi-spaces': 'error',
-      'no-console': 'warn',
-
       ...react.configs.flat.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'react/react-in-jsx-scope':'off',
@@ -43,6 +38,7 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'no-var':'error',
       'import/order': [
         'error',
         {
@@ -54,6 +50,18 @@ export default tseslint.config(
           'newlines-between': 'never',
         },
       ],
+      'stylistic/semi': ['error', 'always'],
+      'stylistic/quotes': ['error', 'single'],
+      'stylistic/eol-last': ['error', 'always'],
+      'stylistic/no-multi-spaces': 'error',
+      'stylistic/indent': ['error', 2, { 'SwitchCase': 1 }],
+      'stylistic/jsx-curly-spacing': [1, { 'when': 'never' }],
+      'stylistic/object-curly-spacing': ['error', 'always'],
+      'stylistic/comma-spacing': ['error', { 'before': false, 'after': true }],
+      'stylistic/max-len': ['warn', 
+        { 'code': 100, 'tabWidth': 2, 'ignoreUrls': true, 'ignoreTemplateLiterals': true }],
+      'stylistic/padding-line-between-statements': ['error', 
+        { 'blankLine': 'always', 'prev': '*', 'next': 'return' }],
     },
   },
 );
