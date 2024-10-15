@@ -54,6 +54,7 @@ export default tseslint.config(
       'stylistic/quotes': ['error', 'single'],
       'stylistic/eol-last': ['error', 'always'],
       'stylistic/no-multi-spaces': 'error',
+      'stylistic/no-multi-key-spacing': ['error', { 'align': 'colon' }],
       'stylistic/indent': ['error', 2, { 'SwitchCase': 1 }],
       'stylistic/jsx-curly-spacing': [1, { 'when': 'never' }],
       'stylistic/object-curly-spacing': ['error', 'always'],
