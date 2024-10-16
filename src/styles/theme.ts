@@ -32,23 +32,29 @@ const FONT = ({ family, weight, size, height }: Font): string => {
 const fonts = {
   head01: FONT({
     family: 'Pretendard',
-    weight: 400,
-    size: 2.4,
+    weight: 700,
+    size: 3.2,
     height: 'normal',
   }), 
   head02: FONT({
+    family: 'Pretendard',
+    weight: 600,
+    size: 2.4,
+    height: 'normal',
+  }), 
+  head03: FONT({
     family: 'Pretendard',
     weight: 400,
     size: 2,
     height: 'normal',
   }), 
-  head03: FONT({
+  head04: FONT({
     family: 'Pretendard',
     weight: 600,
     size: 1.8,
     height: 'normal',
   }), 
-  head04: FONT({
+  head05: FONT({
     family: 'Pretendard',
     weight: 600,
     size: 1.6,
@@ -86,12 +92,16 @@ const fonts = {
   }),
 };
 
+const effect = {boxDrop: `box-shadow: 0px 0.4rem 1.2rem 0.3rem rgba(0, 0, 0, 0.12)`}
+
 export type ColorsTypes = typeof color;
 export type FontsTypes = typeof fonts;
+export type EffectType = typeof effect;
 
 const theme: Theme = {
   color,
   fonts,
+  effect
 };
 
 export default theme;
