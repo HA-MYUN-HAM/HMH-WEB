@@ -7,6 +7,7 @@ const color = {
   white    : '#ffffff',
   red      : '#ff5d41',
 
+  grey01 : '#F5F5F5',
   grey100: '#f1f2ee',
   grey300: '#dde0d5',
   grey500: '#9fa499',
@@ -17,7 +18,6 @@ interface Font {
   family: string;
   weight: number;
   height: string;
-  // eslint-disable-next-line stylistic/no-multi-spaces
   size  : number;
 }
   

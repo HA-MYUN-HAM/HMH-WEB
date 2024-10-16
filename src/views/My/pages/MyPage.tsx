@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router';
-import { ManagerIcon, RightArrowIcon } from '../../assets/icon';
-import { ProfileImg } from '../../assets/img';
+import { ManagerIcon, RightArrowIcon } from '../../../assets/icon';
+import { ProfileImg } from '../../../assets/img';
 
 const MyPage = () => {
   const navigate = useNavigate();
