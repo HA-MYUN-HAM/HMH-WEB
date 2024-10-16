@@ -27,7 +27,7 @@ const ButtonLayout = styled.div`
   bottom: 0;
 
   width: 100%;
-  padding: 1.8rem 3.2rem;
+  padding: 3.2rem 1.8rem;
 `;
 
 const RealButton = styled.button<{ $colored: boolean; }>`

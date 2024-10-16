@@ -20,7 +20,7 @@ const EventMakePage = () => {
   };
 
   const submitFn = () => {
-
+    navigate('/img-generator');
   };
 
   return (
