@@ -6,8 +6,12 @@ import { ProfileImg } from '../../../assets/img';
 const MyPage = () => {
   const navigate = useNavigate();
 
+  const moveToEvent = () => {
+    navigate('/make-event');
+  };
+
   return (
-    <MyPageContainer>
+    <MyPageLayout>
       <Profile>
         <ProfileImage
           src={ProfileImg}
@@ -17,16 +21,16 @@ const MyPage = () => {
       </Profile>
       <TapList>
         <TapItem>티켓 조회<RightArrowIcon /></TapItem>
-        <TapItem>행사 생성<RightArrowIcon /></TapItem>
+        <TapItem onClick={moveToEvent}>행사 추가<RightArrowIcon /></TapItem>
         <LogOut>로그아웃</LogOut>
       </TapList>
-    </MyPageContainer>
+    </MyPageLayout>
   );
 };
   
 export default MyPage;
   
-const MyPageContainer = styled.main`
+const MyPageLayout = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

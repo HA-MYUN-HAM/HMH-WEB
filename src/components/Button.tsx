@@ -27,13 +27,13 @@ const ButtonLayout = styled.div`
   bottom: 0;
 
   width: 100%;
-  padding: 1.2rem 2rem;
+  padding: 1.8rem 3.2rem;
 `;
 
 const RealButton = styled.button<{ $colored: boolean; }>`
   width: 100%;
-  padding: 1.7rem 0;
-  border-radius: 1.2rem;
+  padding: 2rem 0;
+  border-radius: 1.5rem;
 
   background-color: ${({ theme, $colored }) =>($colored ? theme.color.primary : theme.color.grey01)};
 

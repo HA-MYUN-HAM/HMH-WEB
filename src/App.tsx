@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { reset } from './styles/global';
 import theme from './styles/theme';
 import MainPage from './views/Main/MainPage';
+import EventMakePage from './views/My/pages/EventMakePage';
 import MyPage from './views/My/pages/MyPage';
 
 function App() {
@@ -11,8 +12,9 @@ function App() {
       path: '/', element: <MainPage />
     }, {
       path: '/my-page', element: <MyPage/>
+    }, {
+      path: '/make-event', element: <EventMakePage/>
     },
-
   ]);
 
   return (
