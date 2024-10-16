@@ -92,12 +92,16 @@ const fonts = {
   }),
 };
 
+const effect = {boxDrop: `box-shadow: 0px 0.4rem 1.2rem 0.3rem rgba(0, 0, 0, 0.12)`}
+
 export type ColorsTypes = typeof color;
 export type FontsTypes = typeof fonts;
+export type EffectType = typeof effect;
 
 const theme: Theme = {
   color,
   fonts,
+  effect
 };
 
 export default theme;
