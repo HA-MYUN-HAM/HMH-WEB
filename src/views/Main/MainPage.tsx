@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { ApproveIcon } from "../assets/icon";
+import styled from '@emotion/styled';
+import { ApproveIcon } from '../../assets/icon';
 
 const MainPage = () => {
   return (
