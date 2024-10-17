@@ -8,7 +8,7 @@ const Ticket = () => {
   const navigate = useNavigate();
 
   const leftFn = () => {
-    navigate('/my-page');
+    navigate('/');
   };
     
   return (

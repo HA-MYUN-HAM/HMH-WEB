@@ -6,9 +6,9 @@ import Button from '../../../components/Button';
 
 const ImgResult = () => {
   const navigate = useNavigate();
-  
+
   const submitFn = () => {
-    navigate('/my-page');
+    navigate('/');
   };
 
   return (

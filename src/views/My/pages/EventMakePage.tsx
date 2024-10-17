@@ -16,7 +16,7 @@ const EventMakePage = () => {
   const navigate = useNavigate();
     
   const leftFn = () => {
-    navigate('my-page');
+    navigate('/');
   };
 
   const submitFn = () => {
