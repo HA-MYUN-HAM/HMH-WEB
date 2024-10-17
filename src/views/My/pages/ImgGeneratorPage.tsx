@@ -31,8 +31,8 @@ const ImgGeneratorPage = () => {
           <>
             <img src={SpinnerGIF} alt='로딩_스피너'/>
             <span>이미지를 생성하고 있어요!</span>
-  
-          </>          : <ImgResult />}
+          </>          
+          : <ImgResult />}
       </SpinnerBox> 
     </ImgGeneratorLayout>
   );

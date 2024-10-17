@@ -21,7 +21,7 @@ const ImgResult = () => {
 export default ImgResult;
 
 const AIImg = styled.img`
-	width: calc(100% - 3.6rem);
+	width: 48rem;
 	margin: -8rem 1.8rem 0 1.8rem;
 
 	border-radius: 16px;

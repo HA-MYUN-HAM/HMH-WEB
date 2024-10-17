@@ -27,7 +27,9 @@ const EventMakePage = () => {
     <>
       <Header leftFn={leftFn} leftIcon={LeftArrowIcon} title='행사 추가'/>
       <EventMakePageLayout>
-        <AIImgUpload type='button'><CameraIcon /><span>홍보물 생성하기</span></AIImgUpload>
+        <AIImgUpload type='button' onClick={submitFn}>
+          <CameraIcon /><span>홍보물 생성하기</span>
+        </AIImgUpload>
         <InputForm>
           <InputSection>
             <InputTitle>행사 제목*</InputTitle>
