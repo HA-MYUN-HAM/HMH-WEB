@@ -10,6 +10,10 @@ const MyPage = () => {
     navigate('/make-event');
   };
 
+  const moveToTicket = () => {
+    navigate('/ticket');
+  };
+
   return (
     <MyPageLayout>
       <Profile>
@@ -20,7 +24,7 @@ const MyPage = () => {
         <ProfileName><ManagerIcon />김민영</ProfileName>
       </Profile>
       <TapList>
-        <TapItem>티켓 조회<RightArrowIcon /></TapItem>
+        <TapItem onClick={moveToTicket}>티켓 조회<RightArrowIcon /></TapItem>
         <TapItem onClick={moveToEvent}>행사 추가<RightArrowIcon /></TapItem>
         <LogOut>로그아웃</LogOut>
       </TapList>

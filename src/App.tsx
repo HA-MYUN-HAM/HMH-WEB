@@ -6,6 +6,7 @@ import MainPage from './views/Main/MainPage';
 import EventMakePage from './views/My/pages/EventMakePage';
 import ImgGeneratorPage from './views/My/pages/ImgGeneratorPage';
 import MyPage from './views/My/pages/MyPage';
+import Ticket from './views/My/pages/Ticket';
 
 function App() {
   const router = createBrowserRouter([
@@ -19,6 +20,9 @@ function App() {
     }, {
       path   : '/img-generator', 
       element: <ImgGeneratorPage/>,
+    }, {
+      path   : '/ticket', 
+      element: <Ticket />,
     }
   ]);
 

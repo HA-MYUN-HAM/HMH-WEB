@@ -6,8 +6,9 @@ import Button from '../../../components/Button';
 
 const ImgResult = () => {
   const navigate = useNavigate();
+  
   const submitFn = () => {
-    navigate('/img-generator');
+    navigate('/my-page');
   };
 
   return (
