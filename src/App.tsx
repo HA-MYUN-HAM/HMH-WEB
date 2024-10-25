@@ -2,6 +2,7 @@ import { Global, ThemeProvider } from '@emotion/react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { reset } from './styles/global';
 import theme from './styles/theme';
+import EventPage from './views/Event/EventPage';
 import EventMakePage from './views/My/pages/EventMakePage';
 import ImgGeneratorPage from './views/My/pages/ImgGeneratorPage';
 import MyPage from './views/My/pages/MyPage';
@@ -20,6 +21,9 @@ function App() {
     }, {
       path   : '/ticket', 
       element: <Ticket />,
+    }, {
+      path   : '/event', 
+      element: <EventPage />,
     }
   ]);
 
