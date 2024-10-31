@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router';
 import { LeftArrowIcon } from '../../../assets/icon';
 import { BackgroundImg, SpinnerGIF } from '../../../assets/img';
 import Header from '../../../components/Header';
-import ImgResult from '../components/ImgResult';
+import ImgResult from '../../My/components/ImgResult';
 
 
-const ImgGeneratorPage = () => {
+const ImgGenerator = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ const ImgGeneratorPage = () => {
   );
 };
 
-export default ImgGeneratorPage;
+export default ImgGenerator;
 
 const ImgGeneratorLayout = styled.main`
   display: flex;

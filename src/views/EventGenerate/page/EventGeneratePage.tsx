@@ -11,7 +11,7 @@ import { BackgroundImg } from '../../../assets/img';
 import Button from '../../../components/Button';
 import Header from '../../../components/Header';
 
-const EventMakePage = () => {
+const EventGeneratePage = () => {
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
     
@@ -26,7 +26,7 @@ const EventMakePage = () => {
   return (
     <>
       <Header leftFn={leftFn} leftIcon={LeftArrowIcon} title='행사 추가'/>
-      <EventMakePageLayout>
+      <EventGeneratePageLayout>
         <AIImgUpload type='button' onClick={submitFn}>
           <CameraIcon /><span>홍보물 생성하기</span>
         </AIImgUpload>
@@ -75,14 +75,14 @@ const EventMakePage = () => {
           {isChecked ?  <SelectedCheckIcon /> : <DefaultCheckIcon />}메인 페이지에 공지사항으로 업로드합니다.
         </CheckBox>
         <Button text="신청하기" clickedFn={submitFn} />
-      </EventMakePageLayout>
+      </EventGeneratePageLayout>
     </>  
   );
 };
 
-export default EventMakePage;
+export default EventGeneratePage;
 
-const EventMakePageLayout = styled.main`
+const EventGeneratePageLayout = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;

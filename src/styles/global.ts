@@ -5,12 +5,29 @@ export const reset = css`
   ${emotionReset} 
 
   * {
+    max-width: 90rem;
     box-sizing: border-box;
   }
 
-  html,
-  body {
+  #root, body, html {
     margin: 0 auto;
+
+    max-width: 90rem;
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+  }
+
+  #root::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+  }
+
+  html {
+    -webkit-touch-callout: none;
+    scroll-behavior: smooth;
+
+    display: flex;
+    justify-content: center;
+
     font-family:
       'Pretendard Variable',
       Pretendard,
@@ -30,16 +47,14 @@ export const reset = css`
     font-size: 62.5%;
   }
 
-  body {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
   a {
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+  }
+
+  ul,li {
+    list-style: none;
   }
 
   button {
@@ -47,6 +62,18 @@ export const reset = css`
     background: none;
     cursor: pointer;
     font: inherit;
+  }
+
+  input, button {
+    outline: none;
+  }
+
+  input {
+    appearance: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   select {
