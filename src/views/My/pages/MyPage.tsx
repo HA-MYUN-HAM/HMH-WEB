@@ -7,7 +7,7 @@ const MyPage = () => {
   const navigate = useNavigate();
 
   const moveToEvent = () => {
-    navigate('/make-event');
+    navigate('/event-generate');
   };
 
   const moveToTicket = () => {

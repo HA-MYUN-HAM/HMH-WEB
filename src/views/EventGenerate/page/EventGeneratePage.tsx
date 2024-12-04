@@ -1,82 +1,70 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
-import { 
-  CameraIcon, 
-  DefaultCheckIcon, 
-  LeftArrowIcon, 
-  SelectedCheckIcon 
-} from '../../../assets/icon';
+import { useLocation, useNavigate } from 'react-router';
+import { CameraIcon, LeftArrowIcon } from '../../../assets/icon';
 import { BackgroundImg } from '../../../assets/img';
 import Button from '../../../components/Button';
 import Header from '../../../components/Header';
+import { InputValue } from '../constants/InputValue';
 
 const EventGeneratePage = () => {
-  const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
-    
+  const location = useLocation();
+
+  const prevData = location.state;
+
+
   const leftFn = () => {
     navigate('/');
   };
 
-  const submitFn = () => {
-    navigate('/img-generator');
-  };
+  const [, setFormData] = useState(prevData);
 
+  const generateFn = () => {
+    const data = new FormData();
+    const values = Object.fromEntries(data.entries());
+    setFormData(values);
+    navigate('/image-generate', { state: values });
+  };
+  
   return (
     <>
-      <Header leftFn={leftFn} leftIcon={LeftArrowIcon} title='행사 추가'/>
+      <Header leftFn={leftFn} leftIcon={LeftArrowIcon} title='행사 생성' />
       <EventGeneratePageLayout>
-        <AIImgUpload type='button' onClick={submitFn}>
+        <AIImgUpload type='button' onClick={generateFn}>
           <CameraIcon /><span>홍보물 생성하기</span>
         </AIImgUpload>
         <InputForm>
-          <InputSection>
-            <InputTitle>행사 제목*</InputTitle>
-            <Input type="text" placeholder='제목 입력' required />
-          </InputSection>
-          <InputSection>
-            <InputTitle>행사 일시*</InputTitle>
-            <InputBox>
-              <Input type="tel" placeholder='0000년' required />
-              <Input type="tel" placeholder='00월' required />
-              <Input type="tel" placeholder='00일' required />
-            </InputBox>          
-            <InputBox>
-              <Input type="tel" placeholder='00시' required />
-              <Input type="tel" placeholder='00분' required />
-            </InputBox>          
-          </InputSection>
-          <InputSection>
-            <InputTitle>행사 장소*</InputTitle>
-            <Input type="text" placeholder='장소 입력' required />
-          </InputSection>
-          <InputSection>
-            <InputTitle>행사 한 줄 소개*</InputTitle>
-            <Input type="text" placeholder='ex. 새학기의 시작을 함께 준비해요!' required />
-          </InputSection>
-          <InputSection>
-            <InputTitle>행사 정보</InputTitle>
-            <TextareaInput placeholder='ex. 행사 구성 요소, 준비물, 주의사항 등' />
-          </InputSection>
-          <InputSection>
-            <InputTitle>계좌 / 참가비*</InputTitle>            
-            <InputBox>
-              <Input type="text" placeholder='계좌' required />
-              <Input type="tel" placeholder='참가비' required />
-            </InputBox>          
-          </InputSection>
-          <InputSection>
-            <InputTitle>문의번호*</InputTitle>            
-            <Input type="tel" placeholder='010-0000-0000' required />
-          </InputSection>
+          {InputValue.map((section, index) => (
+            <InputSection key={index}>
+              <InputTitle>{section.title}</InputTitle>
+              {section.isMultiple ? (
+                <InputBox>
+                  {section.placeholders.map((placeholder, idx) => (
+                    <Input 
+                      key={idx} 
+                      name={section.title}                      
+                      type={section.type} 
+                      placeholder={placeholder} 
+                      required={section.required} 
+                    />
+                  ))}
+                </InputBox>
+              ) : section.type === 'textarea' ? (
+                <TextareaInput placeholder={section.placeholder} />
+              ) : (
+                <Input 
+                  type={section.type} 
+                  placeholder={section.placeholder} 
+                  required={section.required} 
+                />
+              )}
+            </InputSection>
+          ))}
         </InputForm>
-        <CheckBox $isSelected={isChecked} onClick={()=>{setIsChecked(!isChecked);}}>
-          {isChecked ?  <SelectedCheckIcon /> : <DefaultCheckIcon />}메인 페이지에 공지사항으로 업로드합니다.
-        </CheckBox>
-        <Button text="신청하기" clickedFn={submitFn} />
+        <Button text="생성하기" clickedFn={leftFn} />
       </EventGeneratePageLayout>
-    </>  
+    </>
   );
 };
 
@@ -175,15 +163,4 @@ const TextareaInput = styled.textarea`
   &::placeholder {
     color: ${({ theme }) => theme.color.grey500};
   }
-`;
-
-const CheckBox = styled.button<{ $isSelected: boolean; }>`
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-
-  margin-bottom: 15.2rem;
-
-  color: ${({ theme, $isSelected }) =>($isSelected ? theme.color.grey900 : theme.color.grey500)};
-  ${({ theme }) => theme.fonts.body02};
 `;
