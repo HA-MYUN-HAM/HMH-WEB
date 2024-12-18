@@ -83,5 +83,5 @@ const StatusText = styled.span<{ children: string }>`
       ? theme.color.red
       : children === '예정'
         ? theme.color.secondary
-        : theme.color.red};
+        : theme.color.grey500};
 `;

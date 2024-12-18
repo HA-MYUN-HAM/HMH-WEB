@@ -30,7 +30,7 @@ const AddEventButtonLayout = styled.button`
   width: 100%;
 `;
 
-const ButtonContent = styled.button`
+const ButtonContent = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
