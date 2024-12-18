@@ -1,59 +1,41 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { CameraIcon, LeftArrowIcon } from '../../../assets/icon';
 import { BackgroundImg } from '../../../assets/img';
 import Button from '../../../components/Button';
 import Header from '../../../components/Header';
+import ImageModal from '../component/ImageModal';
 import { InputValue } from '../constants/InputValue';
 
 const EventGeneratePage = () => {
+  const [activateModal, setActivateModal] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const prevData = location.state;
-
 
   const leftFn = () => {
     navigate('/');
   };
 
-  const [, setFormData] = useState(prevData);
-
-  const generateFn = () => {
-    const data = new FormData();
-    const values = Object.fromEntries(data.entries());
-    setFormData(values);
-    navigate('/image-generate', { state: values });
+  const openModalFn = () => {
+    setActivateModal(true);
   };
   
   return (
     <>
       <Header leftFn={leftFn} leftIcon={LeftArrowIcon} title='행사 생성' />
       <EventGeneratePageLayout>
-        <AIImgUpload type='button' onClick={generateFn}>
+        <AIImgUpload type='button' onClick={openModalFn}>
           <CameraIcon /><span>홍보물 생성하기</span>
         </AIImgUpload>
         <InputForm>
           {InputValue.map((section, index) => (
             <InputSection key={index}>
               <InputTitle>{section.title}</InputTitle>
-              {section.isMultiple ? (
-                <InputBox>
-                  {section.placeholders.map((placeholder, idx) => (
-                    <Input 
-                      key={idx} 
-                      name={section.title}                      
-                      type={section.type} 
-                      placeholder={placeholder} 
-                      required={section.required} 
-                    />
-                  ))}
-                </InputBox>
-              ) : section.type === 'textarea' ? (
+              {section.type === 'textarea' ? (
                 <TextareaInput placeholder={section.placeholder} />
               ) : (
                 <Input 
+                  name={section.title}                      
                   type={section.type} 
                   placeholder={section.placeholder} 
                   required={section.required} 
@@ -64,6 +46,7 @@ const EventGeneratePage = () => {
         </InputForm>
         <Button text="생성하기" clickedFn={leftFn} />
       </EventGeneratePageLayout>
+      {activateModal && <ImageModal />}
     </>
   );
 };
@@ -137,11 +120,6 @@ const Input = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.color.grey500};
   }
-`;
-
-const InputBox = styled.div`
-  display: flex;
-  gap: 1.2rem;
 `;
 
 const TextareaInput = styled.textarea`
