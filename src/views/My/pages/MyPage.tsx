@@ -1,35 +1,36 @@
 import styled from '@emotion/styled';
-import { useNavigate } from 'react-router';
+import { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router';
 import { ManagerIcon, RightArrowIcon } from '../../../assets/icon';
 import { ProfileImg } from '../../../assets/img';
 
 const MyPage = () => {
+  const [currentTap, setCurrentTap] = useState('default');
   const navigate = useNavigate();
 
-  const moveToEvent = () => {
-    navigate('/make-event');
+  const moveToTicket = ()=>{
+    setCurrentTap('ticket');
+    navigate('ticket');
   };
 
-  const moveToTicket = () => {
-    navigate('/ticket');
-  };
-
-  return (
-    <MyPageLayout>
-      <Profile>
-        <ProfileImage
-          src={ProfileImg}
-          alt="프로필이미지"
-        />
-        <ProfileName><ManagerIcon />김민영</ProfileName>
-      </Profile>
-      <TapList>
-        <TapItem onClick={moveToTicket}>티켓 조회<RightArrowIcon /></TapItem>
-        <TapItem onClick={moveToEvent}>행사 추가<RightArrowIcon /></TapItem>
-        <LogOut>로그아웃</LogOut>
-      </TapList>
-    </MyPageLayout>
-  );
+  return <>  
+    {currentTap === 'default'?   
+      <MyPageLayout>
+        <Profile>
+          <ProfileImage
+            src={ProfileImg}
+            alt="프로필이미지"
+          />
+          <ProfileName><ManagerIcon />김민영</ProfileName>
+        </Profile>
+        <TapList>
+          <TapItem onClick={moveToTicket}>티켓 조회<RightArrowIcon /></TapItem>
+          <LogOut>로그아웃</LogOut>
+        </TapList>
+      </MyPageLayout> 
+      : <Outlet context={{ setCurrentTap }} />
+    }
+  </>;
 };
   
 export default MyPage;

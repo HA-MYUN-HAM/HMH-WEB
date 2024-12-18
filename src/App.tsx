@@ -15,16 +15,18 @@ function App() {
       element: <EventMainPage />,
     },
     {
-      path   : '/my',
-      element: <MyPage />,
+      path    : '/my',
+      element : <MyPage />,
+      children: [
+        {
+          path   : 'ticket',
+          element: <Ticket />,
+        },
+      ]
     },
     {
       path   : '/make-event',
       element: <EventGeneratePage />,
-    },
-    {
-      path   : '/ticket',
-      element: <Ticket />,
     },
     {
       path   : '/event/:id',
