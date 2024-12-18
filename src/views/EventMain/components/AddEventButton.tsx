@@ -1,18 +1,18 @@
-import styled from "@emotion/styled";
-import { useNavigate } from "react-router";
-import { ApproveIcon } from "../../../assets/icon/index";
+import styled from '@emotion/styled';
+import { useNavigate } from 'react-router';
+import { AddBtnIcon } from '../../../assets/icon';
 
 const AddEventButton = () => {
   const navigate = useNavigate();
 
   const onClick = () => {
-    navigate("/make-event");
+    navigate('/make-event');
   };
 
   return (
     <AddEventButtonLayout onClick={onClick}>
       <ButtonContent>
-        <ApproveIcon />
+        <AddBtnIcon />
         <span>행사 추가하기</span>
       </ButtonContent>
     </AddEventButtonLayout>
@@ -33,9 +33,10 @@ const AddEventButtonLayout = styled.button`
 const ButtonContent = styled.button`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
-
   margin: 1.5rem auto;
+  gap: 1rem;
 
   color: ${({ theme }) => theme.color.grey500};
   ${({ theme }) => theme.fonts.body03};

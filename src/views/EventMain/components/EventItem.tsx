@@ -1,12 +1,12 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 interface EventItemProps {
-  image: string;
-  title: string;
-  date: string;
+  image   : string;
+  title   : string;
+  date    : string;
   location: string;
-  status: "모집중" | "예정" | "마감";
-  onClick: () => void;
+  status  : string;
+  onClick : () => void;
 }
 
 const EventItem = ({
@@ -17,6 +17,7 @@ const EventItem = ({
   status,
   onClick,
 }: EventItemProps) => {
+
   return (
     <EventItemLayout onClick={onClick}>
       <EventImage src={image} alt={title} />
@@ -70,17 +71,17 @@ const EventStatus = styled.span`
   margin-top: auto;
   display: flex;
   justify-content: flex-end;
-  align-item: center;
+  align-items: center;
 `;
-const StatusText = styled.span<{ status: string }>`
-  border-radius: 0.2rem;
-  padding: 0.3rem 0.5rem;
+const StatusText = styled.span<{ children: string }>`
+  border-radius: 0.3rem;
+  padding: 0.4rem 0.6rem;
   color: ${({ theme }) => theme.color.white};
-  ${({ theme }) => theme.fonts.small03};
-  background-color: ${({ status, theme }) =>
-    status === "모집중"
+  ${({ theme }) => theme.fonts.small02};
+  background-color: ${({ children, theme }) =>
+    children === '모집중'
       ? theme.color.red
-      : status === "예정"
-      ? theme.color.secondary
-      : theme.color.red};
+      : children === '예정'
+        ? theme.color.secondary
+        : theme.color.red};
 `;

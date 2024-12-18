@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const MainHeader = () => {
   return (
@@ -30,5 +30,5 @@ const Title = styled.span`
 
 const SubTitle = styled.span`
   color: ${({ theme }) => theme.color.white};
-  ${({ theme }) => theme.fonts.body04};
+  ${({ theme }) => theme.fonts.body03};
 `;
