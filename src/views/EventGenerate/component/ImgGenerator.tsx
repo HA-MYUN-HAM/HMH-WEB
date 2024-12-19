@@ -7,7 +7,7 @@ import Header from '../../../components/Header';
 import ImgResult from '../../My/components/ImgResult';
 
 
-const ImgGenerator = () => {
+const ImageGeneratePage = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -20,11 +20,11 @@ const ImgGenerator = () => {
   }, []);
 
   const leftFn = () => {
-    navigate('/make-event');
+    navigate('/event-generate');
   };
 
   return (
-    <ImgGeneratorLayout>
+    <ImageGeneratePageLayout>
       <Header leftFn={leftFn} leftIcon={LeftArrowIcon} title='홍보물 이미지 생성'/>
       <SpinnerBox>
         {loading ? 
@@ -34,13 +34,13 @@ const ImgGenerator = () => {
           </>          
           : <ImgResult />}
       </SpinnerBox> 
-    </ImgGeneratorLayout>
+    </ImageGeneratePageLayout>
   );
 };
 
-export default ImgGenerator;
+export default ImageGeneratePage;
 
-const ImgGeneratorLayout = styled.main`
+const ImageGeneratePageLayout = styled.main`
   display: flex;
   flex-direction: column;
 

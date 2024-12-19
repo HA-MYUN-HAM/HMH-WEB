@@ -2,6 +2,7 @@ import { Global, ThemeProvider } from '@emotion/react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { reset } from './styles/global';
 import theme from './styles/theme';
+import ImageGeneratePage from './views/EventGenerate/component/ImgGenerator';
 import EventDetailPage from './views/EventDetail/pages/EventDetailPage';
 import EventGeneratePage from './views/EventGenerate/page/EventGeneratePage';
 import EventMainPage from './views/EventMain/pages/EventMainPage';
@@ -25,8 +26,11 @@ function App() {
       ]
     },
     {
-      path   : '/make-event',
-      element: <EventGeneratePage />,
+      path   : '/event-generate', 
+      element: <EventGeneratePage/>,
+    }, {
+      path   : '/image-generate', 
+      element: <ImageGeneratePage/>,
     },
     {
       path   : '/event/:id',
