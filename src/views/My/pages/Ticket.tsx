@@ -1,14 +1,18 @@
 import styled from '@emotion/styled';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import { ApproveIcon, LeftArrowIcon } from '../../../assets/icon';
 import { AISampleImg2, BackgroundImg, BigTicketImg } from '../../../assets/img';
 import Header from '../../../components/Header';
+import { OutletContext } from '../type/myType';
 
 const Ticket = () => {
+  const { setCurrentTap } = useOutletContext<OutletContext>();
   const navigate = useNavigate();
 
   const leftFn = () => {
-    navigate('/');
+    setCurrentTap('default');
+    navigate(-1);
+
   };
     
   return (
